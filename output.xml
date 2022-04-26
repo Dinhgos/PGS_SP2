@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Simulation duration="2913704">
+	<blockAverageDuration totalCount="AB">CD</blockAverageDuration>
+	<resourceAverageDuration totalCount="EF">GH</resourceAverageDuration>
+	<ferryAverageWait trips="IJ">KL</ferryAverageWait>
+	<Workers>
+		<Worker id="MN">
+			<resources>OP</resources>
+			<workDuration>QR</workDuration>
+		</Worker>
+	</Workers>
+	<Vehicles>
+		<Vehicle id="ST">
+			<loadTime>UV</loadTime>
+			<transportTime>WX</transportTime>
+		</Vehicle>
+	</Vehicles>
+</Simulation>

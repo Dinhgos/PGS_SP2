@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <Simulation duration="2913704">
-	<blockAverageDuration totalCount="44400">127.3811036036036</blockAverageDuration>
-	<resourceAverageDuration totalCount="195600">235.62733128834356</resourceAverageDuration>
+	<blockAverageDuration totalCount="195600">127.3811036036036</blockAverageDuration>
+	<resourceAverageDuration totalCount="44400">235.62733128834356</resourceAverageDuration>
 	<ferryAverageWait trips="49">1476349.2448979593</ferryAverageWait>
 	<Workers>
 		<Worker id="0">

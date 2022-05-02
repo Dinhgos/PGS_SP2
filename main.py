@@ -7,7 +7,7 @@ from xml.dom import minidom
 '''
 converts output from PGS1 to XML output
 author Xuan Toan Dinh
-version 01.05.2022
+version 02.05.2022
 '''
 
 data = []       # raw data from input
@@ -46,12 +46,12 @@ def write_to_xml(output_file):
 
     global res
     bad = root.createElement('blockAverageDuration')
-    bad.setAttribute('totalCount', res[0])
+    bad.setAttribute('totalCount', res[1])
     bad.appendChild(root.createTextNode(get_average(1)))
     xml.appendChild(bad)
 
     rad = root.createElement('resourceAverageDuration')
-    rad.setAttribute('totalCount', res[1])
+    rad.setAttribute('totalCount', res[0])
     rad.appendChild(root.createTextNode(get_average(0)))
     xml.appendChild(rad)
 
@@ -170,14 +170,20 @@ def process_input():
             case 'Lorry':
                 if line[3] == 'full':
                     lor_arr[int(line[2])][0].append(int(line[4]))
-                elif line[3] == 'go' or line[3] == 'end' or line[3] == 'ferry':
+                elif line[3] == 'go' or line[3] == 'end':
                     lor_arr[int(line[2])][1].append(int(line[4]))
                 else:
+                    pass
                     print('Lorry job in time ' + line[0] + ' not recognised.')
                     exit(2)
 
             case 'Ferry':
                 fer_arr.append(int(line[4]))
+
+    # adding ferry average waiting time to lorry list
+    avg_fer_time = int(float(average(fer_arr)))
+    for lor in lor_arr:
+        lor[1].append(avg_fer_time)
 
 
 # parses command line arguments
